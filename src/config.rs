@@ -2245,7 +2245,7 @@ pub fn is_incoming_only() -> bool {
         .read()
         .unwrap()
         .get("conn-type")
-        .map_or(true, |x| x == ("incoming"))
+        .map_or(false, |x| x == ("incoming"))
 }
 
 #[inline]
@@ -2273,8 +2273,7 @@ pub fn is_disable_tcp_listen() -> bool {
 
 #[inline]
 pub fn is_disable_settings() -> bool {
-    //is_some_hard_opton("disable-settings")
-    true
+    is_some_hard_opton("disable-settings")
 }
 
 #[inline]
